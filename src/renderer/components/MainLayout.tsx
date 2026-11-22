@@ -11,6 +11,7 @@ import RecentlyAdded from '../pages/RecentlyAdded'
 import SecurityDashboard from '../pages/SecurityDashboard'
 import SettingsPage from '../pages/SettingsPage'
 import GlobalSearch from './GlobalSearch'
+import appLogo from '../assets/logo.png'
 
 type Page = 'dashboard' | 'all-passwords' | 'favorites' | 'categories' | 'recently-added' | 'security' | 'settings'
 
@@ -57,9 +58,7 @@ export default function MainLayout({ currentPage, onNavigate, theme, onToggleThe
       >
         {/* Logo (Height h-16 precisely matches header h-16 for seamless border alignment) */}
         <div className={`flex items-center gap-3 px-4 h-16 border-b border-[#eaecef] dark:border-[#2b3139] shrink-0 ${collapsed ? 'justify-center' : ''}`}>
-          <div className="w-8 h-8 rounded-lg bg-[#fcd535] flex items-center justify-center shrink-0 shadow-sm">
-            <Shield className="w-4 h-4 text-[#181a20]" />
-          </div>
+          <img src={appLogo} alt="VaultDesk" className="w-8 h-8 rounded-lg object-contain shadow-sm shrink-0" />
           {!collapsed && (
             <span className="font-bold text-[#181a20] dark:text-white text-base tracking-tight">VaultDesk</span>
           )}

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Shield, Eye, EyeOff, AlertCircle, CheckCircle } from 'lucide-react'
 import { validateMasterPassword } from '@shared/validation'
 import PasswordStrengthBar from '../components/PasswordStrengthBar'
+import appLogo from '../assets/logo.png'
 
 interface Props { onComplete: () => void }
 
@@ -35,9 +36,7 @@ export default function Setup({ onComplete }: Props): React.ReactElement {
     return (
       <div className="flex flex-col items-center justify-center h-screen bg-white dark:bg-[#0b0e11] text-[#181a20] dark:text-[#eaecef] px-6 animate-fade-in">
         <div className="flex flex-col items-center gap-6 max-w-md text-center">
-          <div className="w-20 h-20 rounded-2xl bg-[#fcd535]/15 flex items-center justify-center border border-[#fcd535]/30">
-            <Shield className="w-10 h-10 text-[#fcd535]" />
-          </div>
+          <img src={appLogo} alt="VaultDesk" className="w-20 h-20 rounded-2xl object-contain shadow-sm border border-[#fcd535]/30" />
           <div>
             <h1 className="text-3xl font-bold text-[#181a20] dark:text-white mb-2">Welcome to VaultDesk</h1>
             <p className="text-[#707a8a] text-base leading-relaxed">
@@ -69,9 +68,7 @@ export default function Setup({ onComplete }: Props): React.ReactElement {
     <div className="flex flex-col items-center justify-center h-screen bg-white dark:bg-[#0b0e11] text-[#181a20] dark:text-[#eaecef] px-6 animate-fade-in">
       <div className="w-full max-w-md space-y-6">
         <div className="text-center">
-          <div className="w-14 h-14 rounded-xl bg-[#fcd535]/15 flex items-center justify-center border border-[#fcd535]/30 mx-auto mb-4">
-            <Shield className="w-7 h-7 text-[#fcd535]" />
-          </div>
+          <img src={appLogo} alt="VaultDesk" className="w-14 h-14 rounded-xl object-contain shadow-sm border border-[#fcd535]/30 mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-[#181a20] dark:text-white">Create Master Password</h2>
           <p className="text-[#707a8a] text-sm mt-1">This password encrypts your entire vault. If you forget it, your data cannot be recovered.</p>
         </div>

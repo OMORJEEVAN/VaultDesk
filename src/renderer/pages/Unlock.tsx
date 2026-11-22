@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Shield, Eye, EyeOff, AlertCircle, Lock } from 'lucide-react'
+import appLogo from '../assets/logo.png'
 
 interface Props { onUnlocked: () => void }
 
@@ -29,9 +30,7 @@ export default function Unlock({ onUnlocked }: Props): React.ReactElement {
     <div className="flex flex-col items-center justify-center h-screen bg-white dark:bg-[#0b0e11] text-[#181a20] dark:text-[#eaecef] px-6 animate-fade-in">
       <div className="w-full max-w-sm space-y-6">
         <div className="text-center">
-          <div className="w-16 h-16 rounded-2xl bg-[#fcd535]/15 flex items-center justify-center border border-[#fcd535]/30 mx-auto mb-4">
-            <Lock className="w-8 h-8 text-[#fcd535]" />
-          </div>
+          <img src={appLogo} alt="VaultDesk" className="w-16 h-16 rounded-2xl object-contain shadow-sm border border-[#fcd535]/30 mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-[#181a20] dark:text-white">Unlock VaultDesk</h2>
           <p className="text-[#707a8a] text-sm mt-1">Enter your master password to access your vault</p>
         </div>
