@@ -27,18 +27,18 @@
 
 ## 🌟 Key Features
 
-- 🔒 **Zero-Knowledge Encryption**: AES-256-GCM authenticated encryption for all credential fields before storing in SQLite.
-- 🔑 **Argon2id Key Derivation**: Derives 256-bit symmetric keys using industry-standard OWASP recommendations ($m=65536\text{ KiB}$, $t=3$, $p=4$). The master password is never stored or logged.
-- 🛡️ **Cryptographic Verification**: Key check record prevents unauthorized vault unlocks and guarantees cryptographic integrity.
-- 🗄️ **Local SQLite Database (WebAssembly)**: Powered by `sql.js` (official SQLite compiled to WebAssembly). Full database encryption at rest, atomic disk persistence, and zero native toolchain dependencies.
-- 🎨 **Binance Design System**: High-contrast dark and light themes styled after Binance's interface specification (`#fcd535` primary brand accents, `#0b0e11` deep canvas floor, `#1e2329` elevated cards, `#eaecef` clean light borders, and `#d9a206` high-contrast light indicators).
-- 📐 **Centered Ergonomic Desktop Layout**: Designed with responsive widescreen centering (`max-w-4xl mx-auto`) and seamless `h-16` sidebar header alignment for comfortable reading and focused workflows on wide monitors.
-- 🔍 **Instant In-Memory Global Search**: Search across platforms, usernames, emails, URLs, categories, tags, and notes (`Ctrl + K`) without writing unencrypted search indexes to disk.
-- 📧 **Smart Autocomplete & Duplicate Detection**: Suggests existing emails on new entries, detects accounts sharing identical emails and platforms, and flags reused passwords.
-- 🎲 **CSPRNG Password Generator**: Generates cryptographically secure passwords using Node.js `crypto.randomBytes`, rejection sampling (zero modulo bias), and Fisher-Yates shuffle.
-- 📊 **Security Dashboard**: Analyzes password strength, evaluates Shannon entropy locally, identifies weak and reused credentials, and generates a security score.
-- 💾 **Encrypted Backup & Portability**: Backup and restore database files with master password verification. Easily migrate vaults between workstations.
-- ⏱️ **Auto-Lock & Clipboard Protection**: Configurable inactivity lock and automatic clipboard memory wiper.
+-  **Zero-Knowledge Encryption**: AES-256-GCM authenticated encryption for all credential fields before storing in SQLite.
+- **Argon2id Key Derivation**: Derives 256-bit symmetric keys using industry-standard OWASP recommendations ($m=65536\text{ KiB}$, $t=3$, $p=4$). The master password is never stored or logged.
+-  **Cryptographic Verification**: Key check record prevents unauthorized vault unlocks and guarantees cryptographic integrity.
+-  **Local SQLite Database (WebAssembly)**: Powered by `sql.js` (official SQLite compiled to WebAssembly). Full database encryption at rest, atomic disk persistence, and zero native toolchain dependencies.
+-  **Binance Design System**: High-contrast dark and light themes styled after Binance's interface specification (`#fcd535` primary brand accents, `#0b0e11` deep canvas floor, `#1e2329` elevated cards, `#eaecef` clean light borders, and `#d9a206` high-contrast light indicators).
+-  **Centered Ergonomic Desktop Layout**: Designed with responsive widescreen centering (`max-w-4xl mx-auto`) and seamless `h-16` sidebar header alignment for comfortable reading and focused workflows on wide monitors.
+-  **Instant In-Memory Global Search**: Search across platforms, usernames, emails, URLs, categories, tags, and notes (`Ctrl + K`) without writing unencrypted search indexes to disk.
+-  **Smart Autocomplete & Duplicate Detection**: Suggests existing emails on new entries, detects accounts sharing identical emails and platforms, and flags reused passwords.
+-  **CSPRNG Password Generator**: Generates cryptographically secure passwords using Node.js `crypto.randomBytes`, rejection sampling (zero modulo bias), and Fisher-Yates shuffle.
+-  **Security Dashboard**: Analyzes password strength, evaluates Shannon entropy locally, identifies weak and reused credentials, and generates a security score.
+-  **Encrypted Backup & Portability**: Backup and restore database files with master password verification. Easily migrate vaults between workstations.
+-  **Auto-Lock & Clipboard Protection**: Configurable inactivity lock and automatic clipboard memory wiper.
 
 ---
 
@@ -87,7 +87,7 @@
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 - Windows 10 or 11 (64-bit)
@@ -124,7 +124,7 @@ The output executables will be generated in the `release/` directory:
 
 ---
 
-## ⌨️ Global Shortcuts
+##  Global Shortcuts
 
 | Shortcut | Function |
 |---|---|
@@ -134,7 +134,7 @@ The output executables will be generated in the `release/` directory:
 
 ---
 
-## 🧪 Testing & Verification
+##  Testing & Verification
 
 VaultDesk includes an automated test suite with 48 unit and integration tests covering:
 - **Argon2id KDF**: Salt uniqueness, memory parameter conformance, and key derivation reproducibility.
@@ -149,7 +149,7 @@ npm test
 
 ---
 
-## 🛡️ Limitations & Security Disclosures
+## Limitations & Security Disclosures
 
 - **Process Memory Forensic Protection**: While in-memory key buffers are actively zeroed on lock (`buffer.fill(0)`), JavaScript garbage-collected environments cannot guarantee instantaneous memory erasure against low-level kernel memory dumps.
 - **Master Password Recovery**: VaultDesk is strictly zero-knowledge. If the master password is lost, encrypted data is mathematically unrecoverable.
