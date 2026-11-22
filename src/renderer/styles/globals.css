@@ -12,17 +12,16 @@
     --color-accent:   #5B6CF9;
   }
 
-  .light {
+  html.light, .light {
     --color-bg:       #f8fafc;
     --color-surface:  #ffffff;
-    --color-border:   rgba(0,0,0,0.1);
-    --color-text:     #1e293b;
+    --color-border:   #e2e8f0;
+    --color-text:     #0f172a;
     --color-muted:    #64748b;
-    --color-accent:   #4a52ee;
+    --color-accent:   #4338ca;
   }
 
   * {
-    @apply border-white/[0.08];
     box-sizing: border-box;
   }
 
@@ -53,17 +52,14 @@
   ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 3px; }
   ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
 
-  .light ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); }
-  .light ::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.25); }
+  .light ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 3px; }
+  .light ::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.35); }
 }
 
 @layer components {
   /* Glass card */
   .card {
     @apply rounded-xl border border-white/[0.08] bg-white/[0.04] backdrop-blur-sm;
-  }
-  .light .card {
-    @apply bg-white border-black/10 shadow-sm;
   }
 
   /* Primary button */
@@ -94,10 +90,6 @@
            focus:outline-none focus:ring-2 focus:ring-vault-500/50 focus:border-vault-500/50
            transition-colors duration-150;
   }
-  .light .input {
-    @apply bg-slate-50 border-slate-200 text-slate-900 placeholder-slate-400
-           focus:border-vault-500;
-  }
 
   /* Sidebar item */
   .sidebar-item {
@@ -113,4 +105,280 @@
   .badge {
     @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium;
   }
+}
+
+/* ============================================================
+   LIGHT MODE OVERRIDES
+   Provides a clean, high-contrast, premium light aesthetic
+   ============================================================ */
+.light body {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+.light .bg-surface-300 {
+  background-color: #f8fafc !important;
+}
+
+.light .bg-surface-100 {
+  background-color: #ffffff !important;
+}
+
+.light .bg-surface-100\/50 {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: #e2e8f0 !important;
+}
+
+.light .bg-surface-50 {
+  background-color: #f1f5f9 !important;
+}
+
+.light aside {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+.light header {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: #e2e8f0 !important;
+}
+
+.light .card {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.04) !important;
+}
+
+.light .card:hover {
+  border-color: #cbd5e1 !important;
+}
+
+/* Headings and primary text */
+.light .text-white {
+  color: #0f172a !important;
+}
+
+.light .text-slate-200 {
+  color: #1e293b !important;
+}
+
+.light .text-slate-300 {
+  color: #334155 !important;
+}
+
+.light .text-slate-400 {
+  color: #475569 !important;
+}
+
+.light .text-slate-500 {
+  color: #64748b !important;
+}
+
+.light .text-slate-600 {
+  color: #64748b !important;
+}
+
+/* Borders */
+.light .border-white\/\[0\.06\],
+.light .border-white\/\[0\.08\],
+.light .border-white\/\[0\.1\],
+.light .border-white\/\[0\.12\],
+.light .border-white\/20,
+.light .border-white\/10 {
+  border-color: #e2e8f0 !important;
+}
+
+/* Inputs and Select elements */
+.light .input {
+  background-color: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #0f172a !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.04) !important;
+}
+
+.light .input::placeholder {
+  color: #94a3b8 !important;
+}
+
+.light .input:focus {
+  border-color: #4f46e5 !important;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.15) !important;
+}
+
+.light select.input option {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+/* Buttons */
+.light .btn-primary {
+  background-color: #4f46e5 !important;
+  color: #ffffff !important;
+}
+
+.light .btn-primary:hover {
+  background-color: #4338ca !important;
+}
+
+.light .btn-ghost {
+  color: #334155 !important;
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03) !important;
+}
+
+.light .btn-ghost:hover {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+.light .btn-danger {
+  background-color: #fef2f2 !important;
+  border: 1px solid #fecaca !important;
+  color: #dc2626 !important;
+}
+
+.light .btn-danger:hover {
+  background-color: #fee2e2 !important;
+  border-color: #fca5a5 !important;
+}
+
+/* Sidebar Navigation */
+.light .sidebar-item {
+  color: #475569 !important;
+}
+
+.light .sidebar-item:hover {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+.light .sidebar-item.active {
+  background-color: #eef2ff !important;
+  color: #4338ca !important;
+  border: 1px solid #c7d2fe !important;
+}
+
+.light .sidebar-item.text-red-400 {
+  color: #dc2626 !important;
+}
+
+.light .sidebar-item.text-red-400:hover {
+  background-color: #fef2f2 !important;
+  color: #b91c1c !important;
+}
+
+/* Badges */
+.light .badge {
+  background-color: #f1f5f9 !important;
+  color: #334155 !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.light .badge.text-vault-400,
+.light .badge.bg-vault-500\/10 {
+  background-color: #eef2ff !important;
+  color: #4338ca !important;
+  border: 1px solid #c7d2fe !important;
+}
+
+/* Background highlights & hovers */
+.light .bg-white\/\[0\.04\],
+.light .bg-white\/\[0\.05\],
+.light .bg-white\/\[0\.06\],
+.light .bg-white\/\[0\.08\] {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+
+.light .hover\:bg-white\/\[0\.04\]:hover,
+.light .hover\:bg-white\/\[0\.05\]:hover,
+.light .hover\:bg-white\/\[0\.06\]:hover,
+.light .hover\:bg-white\/\[0\.08\]:hover {
+  background-color: #f1f5f9 !important;
+}
+
+/* Brand / Accent elements */
+.light .bg-vault-500\/15,
+.light .bg-vault-500\/20,
+.light .bg-vault-500\/10 {
+  background-color: #eef2ff !important;
+  color: #4338ca !important;
+}
+
+.light .text-vault-400,
+.light .text-vault-300 {
+  color: #4338ca !important;
+}
+
+.light .hover\:text-vault-300:hover {
+  color: #3730a3 !important;
+}
+
+/* Status colors in light mode */
+.light .bg-red-500\/5,
+.light .bg-red-500\/10,
+.light .bg-red-500\/15 {
+  background-color: #fef2f2 !important;
+  border-color: #fecaca !important;
+}
+
+.light .text-red-400,
+.light .text-red-500 {
+  color: #dc2626 !important;
+}
+
+.light .bg-green-500\/5,
+.light .bg-green-500\/15 {
+  background-color: #f0fdf4 !important;
+  border-color: #bbf7d0 !important;
+}
+
+.light .text-green-400 {
+  color: #16a34a !important;
+}
+
+.light .bg-orange-500\/5,
+.light .bg-orange-500\/15 {
+  background-color: #fff7ed !important;
+  border-color: #fed7aa !important;
+}
+
+.light .text-orange-400,
+.light .text-orange-300 {
+  color: #ea580c !important;
+}
+
+.light .bg-blue-500\/5,
+.light .bg-blue-500\/10 {
+  background-color: #eff6ff !important;
+  border-color: #bfdbfe !important;
+}
+
+.light .text-blue-300,
+.light .text-blue-400 {
+  color: #2563eb !important;
+}
+
+.light .bg-yellow-500\/5 {
+  background-color: #fefce8 !important;
+  border-color: #fef08a !important;
+}
+
+.light .text-yellow-400 {
+  color: #ca8a04 !important;
+}
+
+/* Modals & Dialogs */
+.light .shadow-glass {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Monospace code / password font background */
+.light .bg-black\/20,
+.light .bg-black\/30 {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+  border: 1px solid #cbd5e1 !important;
 }

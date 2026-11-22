@@ -6,7 +6,7 @@
 // No sensitive data is ever returned in error messages.
 // ============================================================
 
-import { ipcMain, clipboard, dialog, app } from 'electron'
+import { ipcMain, clipboard, dialog, app, nativeTheme } from 'electron'
 import path from 'path'
 import fs from 'fs'
 import {
@@ -255,7 +255,13 @@ export function registerIpcHandlers(): void {
   })
 
   ipcMain.handle('settings:save', async (_e, settings: unknown) => {
-    await saveSettings(settings as Partial<AppSettings>)
+    const s = settings as Partial<AppSettings>
+    await saveSettings(s)
+    if (s.theme) {
+      if (s.theme === 'dark') nativeTheme.themeSource = 'dark'
+      else if (s.theme === 'light') nativeTheme.themeSource = 'light'
+      else nativeTheme.themeSource = 'system'
+    }
   })
 
   // ----------------------------------------------------------------
