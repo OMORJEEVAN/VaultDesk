@@ -1,0 +1,55 @@
+{
+  "name": "vaultdesk",
+  "version": "1.0.0",
+  "description": "Secure local desktop password manager",
+  "main": "out/main/index.js",
+  "author": "VaultDesk",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "preview": "electron-vite preview",
+    "start": "electron .",
+    "pack": "npm run build && electron-builder --dir",
+    "dist": "npm run build && electron-builder",
+    "dist:win": "npm run build && electron-builder --win",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "typecheck": "tsc --noEmit",
+    "postinstall": "powershell -ExecutionPolicy Bypass -File ./scripts/setup-electron.ps1"
+  },
+  "dependencies": {
+    "@electron-toolkit/utils": "^4.0.0",
+    "argon2": "^0.41.1",
+    "electron-store": "^8.2.0",
+    "sql.js": "^1.12.0"
+  },
+  "devDependencies": {
+    "@electron-toolkit/tsconfig": "^2.0.0",
+    "@types/node": "^20.11.5",
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "@types/sql.js": "^1.4.9",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@vitest/ui": "^1.2.1",
+    "autoprefixer": "^10.4.17",
+    "electron": "^28.2.0",
+    "electron-builder": "^24.9.1",
+    "electron-vite": "^2.0.0",
+    "lucide-react": "^0.316.0",
+    "postcss": "^8.4.33",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.11",
+    "vitest": "^1.2.1"
+  },
+  "allowScripts": {
+    "argon2@0.41.1": true,
+    "electron@28.3.3": true,
+    "esbuild@0.21.5": true
+  }
+}

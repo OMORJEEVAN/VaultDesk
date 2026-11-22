@@ -1,0 +1,19 @@
+// Standalone tsconfig for Vitest (no electron-vite dependency)
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "types": ["node", "vitest/globals"],
+    "baseUrl": ".",
+    "paths": {
+      "@shared/*": ["src/shared/*"],
+      "@security/*": ["src/security/*"]
+    }
+  },
+  "include": ["src/security/**/*", "src/shared/**/*", "tests/**/*"]
+}
