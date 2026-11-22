@@ -49,19 +49,19 @@ export default function MainLayout({ currentPage, onNavigate, theme, onToggleThe
   }
 
   return (
-    <div className="flex h-screen overflow-hidden bg-[#0b0e11] text-[#eaecef]">
+    <div className="flex h-screen overflow-hidden bg-white dark:bg-[#0b0e11] text-[#181a20] dark:text-[#eaecef]">
       {/* Sidebar */}
       <aside
-        className={`flex flex-col shrink-0 border-r border-[#2b3139] bg-[#0b0e11]
+        className={`flex flex-col shrink-0 border-r border-[#eaecef] dark:border-[#2b3139] bg-[#fafafa] dark:bg-[#0b0e11]
                     transition-all duration-200 ${collapsed ? 'w-16' : 'w-56'}`}
       >
-        {/* Logo */}
-        <div className={`flex items-center gap-3 px-4 py-5 border-b border-[#2b3139] ${collapsed ? 'justify-center' : ''}`}>
+        {/* Logo (Height h-16 precisely matches header h-16 for seamless border alignment) */}
+        <div className={`flex items-center gap-3 px-4 h-16 border-b border-[#eaecef] dark:border-[#2b3139] shrink-0 ${collapsed ? 'justify-center' : ''}`}>
           <div className="w-8 h-8 rounded-lg bg-[#fcd535] flex items-center justify-center shrink-0 shadow-sm">
             <Shield className="w-4 h-4 text-[#181a20]" />
           </div>
           {!collapsed && (
-            <span className="font-bold text-white text-base tracking-tight">VaultDesk</span>
+            <span className="font-bold text-[#181a20] dark:text-white text-base tracking-tight">VaultDesk</span>
           )}
         </div>
 
@@ -81,7 +81,7 @@ export default function MainLayout({ currentPage, onNavigate, theme, onToggleThe
         </nav>
 
         {/* Bottom actions */}
-        <div className="px-2 py-3 border-t border-[#2b3139] space-y-1">
+        <div className="px-2 py-3 border-t border-[#eaecef] dark:border-[#2b3139] space-y-1">
           <button
             className={`sidebar-item w-full text-[#f6465d] hover:text-[#f6465d] hover:bg-[#f6465d]/10 ${collapsed ? 'justify-center px-2' : ''}`}
             onClick={onLock}
@@ -101,19 +101,23 @@ export default function MainLayout({ currentPage, onNavigate, theme, onToggleThe
       </aside>
 
       {/* Main content */}
-      <div className="flex flex-col flex-1 min-w-0 bg-[#0b0e11]">
-        {/* Top bar */}
-        <header className="flex items-center gap-4 px-6 py-3 border-b border-[#2b3139] bg-[#0b0e11] shrink-0">
-          <GlobalSearch />
-          <div className="ml-auto flex items-center gap-2 text-xs text-[#707a8a]">
-            <div className="w-2 h-2 rounded-full bg-[#0ecb81]" />
-            Vault unlocked
+      <div className="flex flex-col flex-1 min-w-0 bg-white dark:bg-[#0b0e11]">
+        {/* Top bar (Height h-16, centered container matching content width) */}
+        <header className="h-16 px-6 border-b border-[#eaecef] dark:border-[#2b3139] bg-white dark:bg-[#0b0e11] shrink-0 flex items-center">
+          <div className="w-full max-w-4xl mx-auto flex items-center justify-between gap-6">
+            <GlobalSearch />
+            <div className="flex items-center gap-2 text-xs text-[#707a8a] shrink-0">
+              <div className="w-2 h-2 rounded-full bg-[#0ecb81]" />
+              <span>Vault unlocked</span>
+            </div>
           </div>
         </header>
 
-        {/* Page content */}
-        <main className="flex-1 overflow-y-auto p-6 animate-fade-in">
-          {renderPage()}
+        {/* Page content (Centered with max-w-4xl mx-auto matching Brave browser full-screen) */}
+        <main className="flex-1 overflow-y-auto p-6 md:p-8 animate-fade-in">
+          <div className="w-full max-w-4xl mx-auto">
+            {renderPage()}
+          </div>
         </main>
       </div>
     </div>

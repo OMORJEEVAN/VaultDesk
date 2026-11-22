@@ -33,17 +33,17 @@ export default function Dashboard({ onNavigate }: Props) {
           'bg-[#fcd535]/15 text-[#fcd535] group-hover:bg-[#fcd535]/25'}`}>
         {icon}
       </div>
-      <div className="text-2xl font-bold font-mono text-white mb-0.5">{value}</div>
+      <div className="text-2xl font-bold font-mono text-[#181a20] dark:text-white mb-0.5">{value}</div>
       <div className="text-sm text-[#707a8a]">{label}</div>
     </button>
   )
 
   return (
-    <div className="space-y-6 max-w-5xl">
+    <div className="space-y-6 w-full">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-white">Dashboard</h1>
+          <h1 className="text-2xl font-bold text-[#181a20] dark:text-white">Dashboard</h1>
           <p className="text-[#707a8a] text-sm mt-0.5">Your vault at a glance</p>
         </div>
         <button
@@ -66,11 +66,11 @@ export default function Dashboard({ onNavigate }: Props) {
       {/* Recently added */}
       <div className="card p-5">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="font-semibold text-white flex items-center gap-2 text-sm">
+          <h2 className="font-semibold text-[#181a20] dark:text-white flex items-center gap-2 text-sm">
             <Clock className="w-4 h-4 text-[#707a8a]" />
             Recently Added
           </h2>
-          <button className="text-xs text-[#fcd535] hover:text-[#f0b90b] font-medium transition-colors" onClick={() => onNavigate('recently-added')}>
+          <button className="text-xs text-[#d9a206] dark:text-[#fcd535] hover:text-[#b8860b] dark:hover:text-[#f0b90b] font-medium transition-colors" onClick={() => onNavigate('recently-added')}>
             View all →
           </button>
         </div>
@@ -85,13 +85,13 @@ export default function Dashboard({ onNavigate }: Props) {
             {recent.map(cred => (
               <div
                 key={cred.id}
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-[#2b3139]/60 transition-colors cursor-default"
+                className="flex items-center gap-3 p-3 rounded-lg hover:bg-[#f5f5f5] dark:hover:bg-[#2b3139]/60 transition-colors cursor-default"
               >
-                <div className="w-9 h-9 rounded-lg bg-[#fcd535]/15 flex items-center justify-center text-[#fcd535] font-bold text-sm shrink-0 font-mono">
+                <div className="w-9 h-9 rounded-lg bg-[#fcd535]/15 flex items-center justify-center text-[#d9a206] dark:text-[#fcd535] font-bold text-sm shrink-0 font-mono">
                   {cred.platformName.charAt(0).toUpperCase()}
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="text-sm font-medium text-white truncate">{cred.platformName}</p>
+                  <p className="text-sm font-medium text-[#181a20] dark:text-white truncate">{cred.platformName}</p>
                   <p className="text-xs text-[#707a8a] truncate">{cred.email || cred.username || '—'}</p>
                 </div>
                 <span className="badge text-xs shrink-0 font-mono">
@@ -107,10 +107,10 @@ export default function Dashboard({ onNavigate }: Props) {
       {creds.length === 0 && (
         <div className="card p-5 border-[#fcd535]/30 bg-[#fcd535]/5">
           <div className="flex items-start gap-3">
-            <TrendingUp className="w-5 h-5 text-[#fcd535] shrink-0 mt-0.5" />
+            <TrendingUp className="w-5 h-5 text-[#d9a206] dark:text-[#fcd535] shrink-0 mt-0.5" />
             <div>
-              <p className="text-sm font-medium text-white">Get started with VaultDesk</p>
-              <p className="text-xs text-[#eaecef]/80 mt-1 leading-relaxed">
+              <p className="text-sm font-medium text-[#181a20] dark:text-white">Get started with VaultDesk</p>
+              <p className="text-xs text-[#707a8a] dark:text-[#eaecef]/80 mt-1 leading-relaxed">
                 Add your first password to unlock the security overview, detect reused passwords, and get personalised recommendations.
               </p>
               <button className="btn-primary text-xs mt-3 py-1.5 px-3" onClick={() => onNavigate('all-passwords')}>

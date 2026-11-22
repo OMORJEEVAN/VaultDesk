@@ -32,10 +32,10 @@ export default function CategoriesPage() {
   const countForCategory = (name: string) => creds.filter(c => c.category === name).length
 
   return (
-    <div className="space-y-4 max-w-3xl">
+    <div className="space-y-4 w-full">
       <div className="flex items-center gap-3">
-        <Tag className="w-5 h-5 text-[#fcd535]" />
-        <h1 className="text-2xl font-bold text-white">Categories</h1>
+        <Tag className="w-5 h-5 text-[#d9a206] dark:text-[#fcd535]" />
+        <h1 className="text-2xl font-bold text-[#181a20] dark:text-white">Categories</h1>
       </div>
 
       {/* Add */}
@@ -56,9 +56,9 @@ export default function CategoriesPage() {
       {/* List */}
       <div className="space-y-2">
         {categories.map(cat => (
-          <div key={cat.id} className="card p-4 flex items-center gap-3 hover:border-[#363d47] transition-colors">
-            <Tag className="w-4 h-4 text-[#fcd535] shrink-0" />
-            <span className="flex-1 text-sm font-medium text-white">{cat.name}</span>
+          <div key={cat.id} className="card p-4 flex items-center gap-3 hover:border-[#cdd1d6] dark:hover:border-[#363d47] transition-colors">
+            <Tag className="w-4 h-4 text-[#d9a206] dark:text-[#fcd535] shrink-0" />
+            <span className="flex-1 text-sm font-medium text-[#181a20] dark:text-white">{cat.name}</span>
             <span className="badge text-xs font-mono">
               <KeyRound className="w-3 h-3 inline mr-1" />
               {countForCategory(cat.name)} passwords

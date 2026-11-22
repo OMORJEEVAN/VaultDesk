@@ -52,7 +52,7 @@ export default function SecurityDashboard() {
   const scoreLabel = score >= 80 ? 'Good' : score >= 60 ? 'Fair' : 'Needs Attention'
 
   return (
-    <div className="space-y-6 max-w-3xl">
+    <div className="space-y-6 w-full">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Shield className="w-5 h-5 text-[#fcd535]" />
@@ -89,11 +89,11 @@ export default function SecurityDashboard() {
               { icon: <RefreshCw className="w-5 h-5" />, label: 'Reused Passwords', value: report.reused, iconColor: report.reused > 0 ? 'text-[#f6465d]' : 'text-[#0ecb81]', cardBorder: report.reused > 0 ? 'border-[#f6465d]/30 bg-[#f6465d]/5' : 'border-[#0ecb81]/30 bg-[#0ecb81]/5' },
               { icon: <XCircle className="w-5 h-5" />, label: 'Duplicate Accounts', value: report.duplicateAccounts, iconColor: report.duplicateAccounts > 0 ? 'text-[#f6465d]' : 'text-[#0ecb81]', cardBorder: report.duplicateAccounts > 0 ? 'border-[#f6465d]/30 bg-[#f6465d]/5' : 'border-[#0ecb81]/30 bg-[#0ecb81]/5' },
               { icon: <Info className="w-5 h-5" />, label: 'Incomplete Records', value: report.missingInfo, iconColor: report.missingInfo > 0 ? 'text-[#fcd535]' : 'text-[#0ecb81]', cardBorder: report.missingInfo > 0 ? 'border-[#fcd535]/30 bg-[#fcd535]/5' : 'border-[#0ecb81]/30 bg-[#0ecb81]/5' },
-              { icon: <Shield className="w-5 h-5" />, label: 'Total Accounts', value: report.total, iconColor: 'text-[#fcd535]', cardBorder: 'border-[#2b3139] bg-[#1e2329]' },
+              { icon: <Shield className="w-5 h-5" />, label: 'Total Accounts', value: report.total, iconColor: 'text-[#fcd535]', cardBorder: 'border-[#eaecef] dark:border-[#2b3139] bg-white dark:bg-[#1e2329]' },
             ].map((s, i) => (
               <div key={i} className={`card p-4 ${s.cardBorder}`}>
                 <div className={`${s.iconColor} mb-2`}>{s.icon}</div>
-                <div className="text-2xl font-bold font-mono text-white">{s.value}</div>
+                <div className="text-2xl font-bold font-mono text-[#181a20] dark:text-white">{s.value}</div>
                 <div className="text-xs text-[#707a8a] mt-0.5">{s.label}</div>
               </div>
             ))}
@@ -102,7 +102,7 @@ export default function SecurityDashboard() {
           {/* Reused password groups */}
           {report.reusedGroups.length > 0 && (
             <div className="card p-5">
-              <h3 className="font-semibold text-white mb-3 flex items-center gap-2">
+              <h3 className="font-semibold text-[#181a20] dark:text-white mb-3 flex items-center gap-2">
                 <AlertTriangle className="w-4 h-4 text-[#f6465d]" />
                 Reused Passwords ({report.reusedGroups.length} groups)
               </h3>
@@ -110,7 +110,7 @@ export default function SecurityDashboard() {
                 {report.reusedGroups.map((g, i) => (
                   <div key={i} className="flex items-center gap-3 p-3 rounded-lg bg-[#f6465d]/5 border border-[#f6465d]/20">
                     <RefreshCw className="w-4 h-4 text-[#f6465d] shrink-0" />
-                    <span className="font-mono text-xs text-white">{'•'.repeat(12)}</span>
+                    <span className="font-mono text-xs text-[#181a20] dark:text-white">{'•'.repeat(12)}</span>
                     <span className="ml-auto text-xs text-[#f6465d] font-medium">Used in {g.ids.length} accounts</span>
                   </div>
                 ))}
@@ -118,7 +118,7 @@ export default function SecurityDashboard() {
             </div>
           )}
 
-          <div className="card p-4 border-[#2b3139] bg-[#1e2329]">
+          <div className="card p-4 border-[#eaecef] dark:border-[#2b3139] bg-[#fafafa] dark:bg-[#1e2329]">
             <p className="text-xs text-[#707a8a] leading-relaxed">
               <Info className="w-3.5 h-3.5 inline mr-1 text-[#fcd535]" />
               All security analysis runs locally on your device. No password data leaves your computer.

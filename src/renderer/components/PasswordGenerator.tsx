@@ -44,21 +44,21 @@ export default function PasswordGenerator({ onGenerate, standalone }: Props) {
   const { score, strength } = analyzePassword(password)
 
   return (
-    <div className={`space-y-3 ${standalone ? '' : 'p-3 bg-[#0b0e11] rounded-xl border border-[#2b3139]'}`}>
+    <div className={`space-y-3 ${standalone ? '' : 'p-3 bg-[#f5f5f5] dark:bg-[#0b0e11] rounded-xl border border-[#eaecef] dark:border-[#2b3139]'}`}>
       {/* Generated password display */}
       <div className="relative">
-        <div className="font-mono text-sm bg-[#0b0e11] border border-[#2b3139] rounded-lg px-3 py-2.5 pr-20 text-white break-all min-h-[2.5rem]">
+        <div className="font-mono text-sm bg-white dark:bg-[#0b0e11] border border-[#eaecef] dark:border-[#2b3139] rounded-lg px-3 py-2.5 pr-20 text-[#181a20] dark:text-white break-all min-h-[2.5rem]">
           {loading ? <span className="text-[#707a8a]">Generating...</span> : password}
         </div>
         <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1">
           <button
-            className="p-1.5 rounded hover:bg-[#2b3139] text-[#707a8a] hover:text-[#fcd535]"
+            className="p-1.5 rounded hover:bg-[#eaecef] dark:hover:bg-[#2b3139] text-[#707a8a] hover:text-[#fcd535]"
             onClick={generate} title="Regenerate" disabled={loading}
           >
             <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
           </button>
           <button
-            className="p-1.5 rounded hover:bg-[#2b3139] text-[#707a8a] hover:text-[#0ecb81]"
+            className="p-1.5 rounded hover:bg-[#eaecef] dark:hover:bg-[#2b3139] text-[#707a8a] hover:text-[#0ecb81]"
             onClick={copy} title="Copy"
           >
             {copied ? <Check className="w-3.5 h-3.5 text-[#0ecb81]" /> : <Copy className="w-3.5 h-3.5" />}

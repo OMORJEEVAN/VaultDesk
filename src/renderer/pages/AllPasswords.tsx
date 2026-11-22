@@ -95,10 +95,10 @@ export default function AllPasswords() {
   }
 
   return (
-    <div className="space-y-4 max-w-5xl">
+    <div className="space-y-4 w-full">
       {/* Header */}
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-white">All Passwords</h1>
+        <h1 className="text-2xl font-bold text-[#181a20] dark:text-white">All Passwords</h1>
         <button className="btn-primary flex items-center gap-2 text-sm" onClick={() => { setEditCred(null); setShowModal(true) }}>
           <Plus className="w-4 h-4" /> Add Password
         </button>
@@ -174,10 +174,10 @@ export default function AllPasswords() {
                 {/* Info */}
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
-                    <span className="font-medium text-white text-sm truncate">{cred.platformName}</span>
+                    <span className="font-medium text-[#181a20] dark:text-white text-sm truncate">{cred.platformName}</span>
                     {cred.isFavorite && <Heart className="w-3.5 h-3.5 text-[#f6465d] fill-[#f6465d] shrink-0" />}
                     {cred.category && (
-                      <span className="badge text-[#fcd535] bg-[#fcd535]/12 border-[#fcd535]/30 shrink-0 font-mono">
+                      <span className="badge text-[#d9a206] dark:text-[#fcd535] bg-[#fcd535]/12 border-[#fcd535]/30 shrink-0 font-mono">
                         {cred.category}
                       </span>
                     )}
@@ -192,24 +192,24 @@ export default function AllPasswords() {
 
                 {/* Actions */}
                 <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <button className="p-1.5 rounded hover:bg-[#2b3139] text-[#707a8a] hover:text-white" title="Toggle password" onClick={() => togglePw(cred.id)}>
+                  <button className="p-1.5 rounded hover:bg-[#f5f5f5] dark:hover:bg-[#2b3139] text-[#707a8a] hover:text-[#181a20] dark:hover:text-white" title="Toggle password" onClick={() => togglePw(cred.id)}>
                     {pwVisible ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                   </button>
-                  <button className="p-1.5 rounded hover:bg-[#2b3139] text-[#707a8a] hover:text-[#0ecb81]" title="Copy password" onClick={() => copy(cred.password, cred.id)}>
+                  <button className="p-1.5 rounded hover:bg-[#f5f5f5] dark:hover:bg-[#2b3139] text-[#707a8a] hover:text-[#0ecb81]" title="Copy password" onClick={() => copy(cred.password, cred.id)}>
                     {copiedId === cred.id ? <Check className="w-4 h-4 text-[#0ecb81]" /> : <Copy className="w-4 h-4" />}
                   </button>
-                  <button className="p-1.5 rounded hover:bg-[#2b3139] text-[#707a8a] hover:text-white" title="Copy email" onClick={() => copy(cred.email || cred.username, cred.id * -1)}>
+                  <button className="p-1.5 rounded hover:bg-[#f5f5f5] dark:hover:bg-[#2b3139] text-[#707a8a] hover:text-[#181a20] dark:hover:text-white" title="Copy email" onClick={() => copy(cred.email || cred.username, cred.id * -1)}>
                     <Copy className="w-3.5 h-3.5" />
                   </button>
                   {cred.websiteUrl && (
-                    <button className="p-1.5 rounded hover:bg-[#2b3139] text-[#707a8a] hover:text-white" title="Open URL" onClick={() => window.open(cred.websiteUrl)}>
+                    <button className="p-1.5 rounded hover:bg-[#f5f5f5] dark:hover:bg-[#2b3139] text-[#707a8a] hover:text-[#181a20] dark:hover:text-white" title="Open URL" onClick={() => window.open(cred.websiteUrl)}>
                       <ExternalLink className="w-4 h-4" />
                     </button>
                   )}
-                  <button className="p-1.5 rounded hover:bg-[#2b3139] text-[#707a8a] hover:text-[#f6465d]" title="Favorite" onClick={() => handleFavorite(cred)}>
+                  <button className="p-1.5 rounded hover:bg-[#f5f5f5] dark:hover:bg-[#2b3139] text-[#707a8a] hover:text-[#f6465d]" title="Favorite" onClick={() => handleFavorite(cred)}>
                     <Heart className={`w-4 h-4 ${cred.isFavorite ? 'fill-[#f6465d] text-[#f6465d]' : ''}`} />
                   </button>
-                  <button className="p-1.5 rounded hover:bg-[#2b3139] text-[#707a8a] hover:text-[#fcd535]" title="Edit" onClick={() => { setEditCred(cred); setShowModal(true) }}>
+                  <button className="p-1.5 rounded hover:bg-[#f5f5f5] dark:hover:bg-[#2b3139] text-[#707a8a] hover:text-[#d9a206] dark:hover:text-[#fcd535]" title="Edit" onClick={() => { setEditCred(cred); setShowModal(true) }}>
                     <Edit3 className="w-4 h-4" />
                   </button>
                   <button className="p-1.5 rounded hover:bg-[#f6465d]/20 text-[#707a8a] hover:text-[#f6465d]" title="Delete" onClick={() => setDeleteId(cred.id)}>

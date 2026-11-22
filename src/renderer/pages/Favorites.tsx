@@ -12,10 +12,10 @@ export default function Favorites() {
   }, [])
 
   return (
-    <div className="space-y-4 max-w-5xl">
+    <div className="space-y-4 w-full">
       <div className="flex items-center gap-3">
         <Heart className="w-5 h-5 text-[#f6465d] fill-[#f6465d]" />
-        <h1 className="text-2xl font-bold text-white">Favorites</h1>
+        <h1 className="text-2xl font-bold text-[#181a20] dark:text-white">Favorites</h1>
       </div>
       {creds.length === 0 ? (
         <div className="card p-12 text-center text-[#707a8a]">
@@ -25,12 +25,12 @@ export default function Favorites() {
       ) : (
         <div className="space-y-2">
           {creds.map(cred => (
-            <div key={cred.id} className="card p-4 flex items-center gap-4 hover:border-[#363d47] transition-all duration-150">
+            <div key={cred.id} className="card p-4 flex items-center gap-4 hover:border-[#cdd1d6] dark:hover:border-[#363d47] transition-all duration-150">
               <div className="w-10 h-10 rounded-lg bg-[#f6465d]/15 flex items-center justify-center text-[#f6465d] font-bold shrink-0 font-mono">
                 {cred.platformName.charAt(0).toUpperCase()}
               </div>
               <div className="flex-1 min-w-0">
-                <p className="font-medium text-white text-sm truncate">{cred.platformName}</p>
+                <p className="font-medium text-[#181a20] dark:text-white text-sm truncate">{cred.platformName}</p>
                 <p className="text-xs text-[#707a8a] truncate">{cred.email || cred.username || '—'}</p>
               </div>
               <Heart className="w-4 h-4 text-[#f6465d] fill-[#f6465d] shrink-0" />

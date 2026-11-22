@@ -33,25 +33,25 @@ export default function Setup({ onComplete }: Props): React.ReactElement {
 
   if (step === 'welcome') {
     return (
-      <div className="flex flex-col items-center justify-center h-screen bg-[#0b0e11] px-6 animate-fade-in">
+      <div className="flex flex-col items-center justify-center h-screen bg-white dark:bg-[#0b0e11] text-[#181a20] dark:text-[#eaecef] px-6 animate-fade-in">
         <div className="flex flex-col items-center gap-6 max-w-md text-center">
           <div className="w-20 h-20 rounded-2xl bg-[#fcd535]/15 flex items-center justify-center border border-[#fcd535]/30">
             <Shield className="w-10 h-10 text-[#fcd535]" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-white mb-2">Welcome to VaultDesk</h1>
+            <h1 className="text-3xl font-bold text-[#181a20] dark:text-white mb-2">Welcome to VaultDesk</h1>
             <p className="text-[#707a8a] text-base leading-relaxed">
               Your secure, completely offline password vault. All data is encrypted on your device — nothing ever leaves your computer.
             </p>
           </div>
-          <div className="w-full bg-[#1e2329] rounded-xl border border-[#2b3139] p-4 text-left space-y-2.5">
+          <div className="w-full bg-[#fafafa] dark:bg-[#1e2329] rounded-xl border border-[#eaecef] dark:border-[#2b3139] p-4 text-left space-y-2.5">
             {[
               'AES-256-GCM encryption for all stored credentials',
               'Argon2id key derivation — never stores your master password',
               'Fully offline — no cloud, no telemetry, no accounts',
               'Open source security layer'
             ].map((f, i) => (
-              <div key={i} className="flex items-center gap-2.5 text-sm text-[#eaecef]">
+              <div key={i} className="flex items-center gap-2.5 text-sm text-[#181a20] dark:text-[#eaecef]">
                 <CheckCircle className="w-4 h-4 text-[#fcd535] shrink-0" />
                 {f}
               </div>
@@ -66,20 +66,20 @@ export default function Setup({ onComplete }: Props): React.ReactElement {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-[#0b0e11] px-6 animate-fade-in">
+    <div className="flex flex-col items-center justify-center h-screen bg-white dark:bg-[#0b0e11] text-[#181a20] dark:text-[#eaecef] px-6 animate-fade-in">
       <div className="w-full max-w-md space-y-6">
         <div className="text-center">
           <div className="w-14 h-14 rounded-xl bg-[#fcd535]/15 flex items-center justify-center border border-[#fcd535]/30 mx-auto mb-4">
             <Shield className="w-7 h-7 text-[#fcd535]" />
           </div>
-          <h2 className="text-2xl font-bold text-white">Create Master Password</h2>
+          <h2 className="text-2xl font-bold text-[#181a20] dark:text-white">Create Master Password</h2>
           <p className="text-[#707a8a] text-sm mt-1">This password encrypts your entire vault. If you forget it, your data cannot be recovered.</p>
         </div>
 
         <div className="card p-6 space-y-4">
           {/* Password field */}
           <div>
-            <label className="block text-sm font-medium text-[#eaecef] mb-1.5">Master Password</label>
+            <label className="block text-sm font-medium text-[#181a20] dark:text-[#eaecef] mb-1.5">Master Password</label>
             <div className="relative">
               <input
                 type={showPw ? 'text' : 'password'}
@@ -91,7 +91,7 @@ export default function Setup({ onComplete }: Props): React.ReactElement {
               />
               <button
                 type="button"
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#707a8a] hover:text-white"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#707a8a] hover:text-[#181a20] dark:hover:text-white"
                 onClick={() => setShowPw(v => !v)}
               >
                 {showPw ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -114,7 +114,7 @@ export default function Setup({ onComplete }: Props): React.ReactElement {
 
           {/* Confirm field */}
           <div>
-            <label className="block text-sm font-medium text-[#eaecef] mb-1.5">Confirm Master Password</label>
+            <label className="block text-sm font-medium text-[#181a20] dark:text-[#eaecef] mb-1.5">Confirm Master Password</label>
             <div className="relative">
               <input
                 type={showCf ? 'text' : 'password'}

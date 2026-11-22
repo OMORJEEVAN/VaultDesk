@@ -60,11 +60,11 @@ export default function CredentialModal({ initial, onSave, onClose, existingEmai
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-fade-in">
-      <div className="w-full max-w-lg bg-[#1e2329] rounded-2xl border border-[#2b3139] shadow-card-dark flex flex-col max-h-[90vh]">
+      <div className="w-full max-w-lg bg-white dark:bg-[#1e2329] rounded-2xl border border-[#eaecef] dark:border-[#2b3139] shadow-card-dark flex flex-col max-h-[90vh]">
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[#2b3139] shrink-0">
-          <h2 className="text-lg font-semibold text-white">{initial ? 'Edit Password' : 'Add Password'}</h2>
-          <button className="p-1.5 rounded-lg hover:bg-[#2b3139] text-[#707a8a] hover:text-white" onClick={onClose}>
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[#eaecef] dark:border-[#2b3139] shrink-0">
+          <h2 className="text-lg font-semibold text-[#181a20] dark:text-white">{initial ? 'Edit Password' : 'Add Password'}</h2>
+          <button className="p-1.5 rounded-lg hover:bg-[#f5f5f5] dark:hover:bg-[#2b3139] text-[#707a8a] hover:text-[#181a20] dark:hover:text-white" onClick={onClose}>
             <X className="w-5 h-5" />
           </button>
         </div>
@@ -95,9 +95,9 @@ export default function CredentialModal({ initial, onSave, onClose, existingEmai
               autoComplete="off"
             />
             {showEmailSugg && emailSuggestions.length > 0 && (
-              <div className="absolute top-full left-0 right-0 mt-1 bg-[#1e2329] border border-[#2b3139] rounded-lg overflow-hidden z-10 shadow-card-dark">
+              <div className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-[#1e2329] border border-[#eaecef] dark:border-[#2b3139] rounded-lg overflow-hidden z-10 shadow-card-dark">
                 {emailSuggestions.map(e => (
-                  <button key={e} className="w-full text-left px-3 py-2 text-sm hover:bg-[#2b3139] text-[#eaecef]" onClick={() => { set('email', e); setShowEmailSugg(false) }}>
+                  <button key={e} className="w-full text-left px-3 py-2 text-sm hover:bg-[#f5f5f5] dark:hover:bg-[#2b3139] text-[#181a20] dark:text-[#eaecef]" onClick={() => { set('email', e); setShowEmailSugg(false) }}>
                     {e}
                   </button>
                 ))}
@@ -205,7 +205,7 @@ export default function CredentialModal({ initial, onSave, onClose, existingEmai
         </div>
 
         {/* Footer */}
-        <div className="flex gap-3 px-6 py-4 border-t border-[#2b3139] shrink-0">
+        <div className="flex gap-3 px-6 py-4 border-t border-[#eaecef] dark:border-[#2b3139] shrink-0">
           <button className="btn-ghost flex-1 text-sm" onClick={onClose}>Cancel</button>
           <button className="btn-primary flex-1 text-sm font-semibold" onClick={handleSave} disabled={loading}>
             {loading ? 'Saving...' : initial ? 'Save Changes' : 'Add Password'}

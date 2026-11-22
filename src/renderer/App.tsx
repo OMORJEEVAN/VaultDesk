@@ -68,7 +68,7 @@ export default function App(): React.ReactElement {
 
   if (status === null) {
     return (
-      <div className="flex items-center justify-center h-screen bg-[#0b0e11]">
+      <div className="flex items-center justify-center h-screen bg-white dark:bg-[#0b0e11]">
         <div className="w-8 h-8 border-2 border-[#fcd535] border-t-transparent rounded-full animate-spin" />
       </div>
     )

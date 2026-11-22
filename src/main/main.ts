@@ -38,7 +38,8 @@ function createWindow(): void {
     show: false,
     frame: true,
     titleBarStyle: 'default',
-    backgroundColor: '#0b0e11',
+    autoHideMenuBar: true,
+    backgroundColor: settings.theme === 'light' ? '#ffffff' : '#0b0e11',
     icon: iconPath,
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
@@ -50,6 +51,9 @@ function createWindow(): void {
       experimentalFeatures: false
     }
   })
+
+  // Remove default application menu (File, Edit, View, Window, Help)
+  mainWindow.removeMenu()
 
   // Content Security Policy
   const scriptSrc = is.dev ? "'self' 'unsafe-inline'" : "'self'"

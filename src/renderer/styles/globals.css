@@ -429,11 +429,13 @@ html.light body,
 }
 
 .light .text-vault-400,
-.light .text-vault-300 {
+.light .text-vault-300,
+.light .text-\[\#fcd535\] {
   color: #d9a206 !important;
 }
 
-.light .hover\:text-vault-300:hover {
+.light .hover\:text-vault-300:hover,
+.light .hover\:text-\[\#fcd535\]:hover {
   color: #b8860b !important;
 }
 

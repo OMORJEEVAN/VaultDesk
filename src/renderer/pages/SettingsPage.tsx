@@ -64,26 +64,26 @@ export default function SettingsPage({ theme, onToggleTheme, onLock }: Props) {
   if (!settings) return null
 
   return (
-    <div className="space-y-6 max-w-2xl">
+    <div className="space-y-6 w-full">
       <div className="flex items-center gap-3">
-        <Settings className="w-5 h-5 text-[#fcd535]" />
-        <h1 className="text-2xl font-bold text-white">Settings</h1>
+        <Settings className="w-5 h-5 text-[#d9a206] dark:text-[#fcd535]" />
+        <h1 className="text-2xl font-bold text-[#181a20] dark:text-white">Settings</h1>
         {saved && <span className="text-xs text-[#0ecb81] ml-auto animate-fade-in font-medium">✓ Saved</span>}
       </div>
 
       {/* Appearance */}
       <div className="card p-5 space-y-4">
-        <h2 className="font-semibold text-white text-sm">Appearance</h2>
+        <h2 className="font-semibold text-[#181a20] dark:text-white text-sm">Appearance</h2>
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm font-medium text-white">Theme</p>
+            <p className="text-sm font-medium text-[#181a20] dark:text-white">Theme</p>
             <p className="text-xs text-[#707a8a]">Switch between dark and light mode</p>
           </div>
           <button
             className="btn-ghost flex items-center gap-2 px-3 py-1.5 text-sm"
             onClick={onToggleTheme}
           >
-            {theme === 'dark' ? <Moon className="w-4 h-4 text-[#fcd535]" /> : <Sun className="w-4 h-4 text-[#fcd535]" />}
+            {theme === 'dark' ? <Moon className="w-4 h-4 text-[#d9a206] dark:text-[#fcd535]" /> : <Sun className="w-4 h-4 text-[#d9a206] dark:text-[#fcd535]" />}
             {theme === 'dark' ? 'Dark' : 'Light'}
           </button>
         </div>
@@ -91,10 +91,10 @@ export default function SettingsPage({ theme, onToggleTheme, onLock }: Props) {
 
       {/* Security */}
       <div className="card p-5 space-y-4">
-        <h2 className="font-semibold text-white text-sm">Security</h2>
+        <h2 className="font-semibold text-[#181a20] dark:text-white text-sm">Security</h2>
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm font-medium text-white">Auto-lock after inactivity</p>
+            <p className="text-sm font-medium text-[#181a20] dark:text-white">Auto-lock after inactivity</p>
             <p className="text-xs text-[#707a8a]">Lock the vault after this many minutes of inactivity (0 = disabled)</p>
           </div>
           <select
@@ -113,7 +113,7 @@ export default function SettingsPage({ theme, onToggleTheme, onLock }: Props) {
         </div>
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm font-medium text-white">Clipboard clear delay</p>
+            <p className="text-sm font-medium text-[#181a20] dark:text-white">Clipboard clear delay</p>
             <p className="text-xs text-[#707a8a]">Clear copied password from clipboard after this many seconds</p>
           </div>
           <select
@@ -134,7 +134,7 @@ export default function SettingsPage({ theme, onToggleTheme, onLock }: Props) {
 
       {/* Backup & Restore */}
       <div className="card p-5 space-y-3">
-        <h2 className="font-semibold text-white text-sm">Backup & Restore</h2>
+        <h2 className="font-semibold text-[#181a20] dark:text-white text-sm">Backup & Restore</h2>
         <p className="text-xs text-[#707a8a]">Backups are always encrypted. The vault file can only be opened with the correct master password.</p>
         <div className="flex gap-3">
           <button className="btn-ghost text-sm flex items-center gap-2 flex-1 justify-center" onClick={handleExportBackup}>
@@ -148,8 +148,8 @@ export default function SettingsPage({ theme, onToggleTheme, onLock }: Props) {
 
       {/* Vault location */}
       <div className="card p-5 space-y-3">
-        <h2 className="font-semibold text-white text-sm">Vault Storage Location</h2>
-        <p className="text-xs text-white font-mono bg-[#0b0e11] border border-[#2b3139] p-2.5 rounded-lg">
+        <h2 className="font-semibold text-[#181a20] dark:text-white text-sm">Vault Storage Location</h2>
+        <p className="text-xs text-[#181a20] dark:text-white font-mono bg-[#f5f5f5] dark:bg-[#0b0e11] border border-[#eaecef] dark:border-[#2b3139] p-2.5 rounded-lg">
           {settings.vaultPath || '(default: app data directory)'}
         </p>
         <button className="btn-ghost text-sm flex items-center gap-2" onClick={handleChangeLocation}>
