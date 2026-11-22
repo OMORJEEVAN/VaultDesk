@@ -155,7 +155,3 @@ npm test
 - **Master Password Recovery**: VaultDesk is strictly zero-knowledge. If the master password is lost, encrypted data is mathematically unrecoverable.
 
 ---
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
