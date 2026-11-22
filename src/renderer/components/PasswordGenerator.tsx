@@ -44,24 +44,24 @@ export default function PasswordGenerator({ onGenerate, standalone }: Props) {
   const { score, strength } = analyzePassword(password)
 
   return (
-    <div className={`space-y-3 ${standalone ? '' : 'p-3 bg-black/20 rounded-xl border border-white/[0.08]'}`}>
+    <div className={`space-y-3 ${standalone ? '' : 'p-3 bg-[#0b0e11] rounded-xl border border-[#2b3139]'}`}>
       {/* Generated password display */}
       <div className="relative">
-        <div className="font-mono text-sm bg-black/30 border border-white/[0.08] rounded-lg px-3 py-2.5 pr-20 text-white break-all min-h-[2.5rem]">
-          {loading ? <span className="text-slate-500">Generating...</span> : password}
+        <div className="font-mono text-sm bg-[#0b0e11] border border-[#2b3139] rounded-lg px-3 py-2.5 pr-20 text-white break-all min-h-[2.5rem]">
+          {loading ? <span className="text-[#707a8a]">Generating...</span> : password}
         </div>
         <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1">
           <button
-            className="p-1.5 rounded hover:bg-white/[0.08] text-slate-400 hover:text-vault-400"
+            className="p-1.5 rounded hover:bg-[#2b3139] text-[#707a8a] hover:text-[#fcd535]"
             onClick={generate} title="Regenerate" disabled={loading}
           >
             <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
           </button>
           <button
-            className="p-1.5 rounded hover:bg-white/[0.08] text-slate-400 hover:text-green-400"
+            className="p-1.5 rounded hover:bg-[#2b3139] text-[#707a8a] hover:text-[#0ecb81]"
             onClick={copy} title="Copy"
           >
-            {copied ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Copy className="w-3.5 h-3.5" />}
+            {copied ? <Check className="w-3.5 h-3.5 text-[#0ecb81]" /> : <Copy className="w-3.5 h-3.5" />}
           </button>
         </div>
       </div>
@@ -72,22 +72,22 @@ export default function PasswordGenerator({ onGenerate, standalone }: Props) {
           {Array.from({ length: 5 }).map((_, i) => (
             <div key={i} className={`h-1 flex-1 rounded-full transition-colors ${
               i < Math.ceil(score / 20) ?
-                (strength === 'very-strong' || strength === 'strong' ? 'bg-green-500' :
-                 strength === 'fair' ? 'bg-yellow-500' : 'bg-red-500')
-                : 'bg-white/[0.1]'
+                (strength === 'very-strong' || strength === 'strong' ? 'bg-[#0ecb81]' :
+                 strength === 'fair' ? 'bg-[#fcd535]' : 'bg-[#f6465d]')
+                : 'bg-[#2b3139]'
             }`} />
           ))}
         </div>
-        <span className="text-xs text-slate-500 shrink-0 capitalize">{strength.replace('-', ' ')}</span>
+        <span className="text-xs text-[#707a8a] shrink-0 capitalize font-mono">{strength.replace('-', ' ')}</span>
       </div>
 
       {/* Controls */}
       <div className="space-y-2.5">
         <div className="flex items-center gap-3">
-          <label className="text-xs text-slate-400 w-16 shrink-0">Length: {opts.length}</label>
+          <label className="text-xs text-[#707a8a] w-16 shrink-0 font-mono">Length: {opts.length}</label>
           <input
             type="range" min={8} max={64} value={opts.length}
-            className="flex-1 h-1 accent-vault-500"
+            className="flex-1 h-1 accent-[#fcd535]"
             onChange={e => setOpt('length', Number(e.target.value))}
           />
         </div>
@@ -100,21 +100,21 @@ export default function PasswordGenerator({ onGenerate, standalone }: Props) {
           ] as [keyof GeneratorOptions, string][]).map(([k, label]) => (
             <label key={k} className="flex items-center gap-2 cursor-pointer">
               <input
-                type="checkbox" className="w-3.5 h-3.5 accent-vault-500"
+                type="checkbox" className="w-3.5 h-3.5 accent-[#fcd535]"
                 checked={opts[k] as boolean}
                 onChange={e => setOpt(k, e.target.checked)}
               />
-              <span className="text-xs text-slate-300">{label}</span>
+              <span className="text-xs text-[#eaecef]">{label}</span>
             </label>
           ))}
         </div>
         <label className="flex items-center gap-2 cursor-pointer">
           <input
-            type="checkbox" className="w-3.5 h-3.5 accent-vault-500"
+            type="checkbox" className="w-3.5 h-3.5 accent-[#fcd535]"
             checked={opts.excludeAmbiguous}
             onChange={e => setOpt('excludeAmbiguous', e.target.checked)}
           />
-          <span className="text-xs text-slate-300">Exclude ambiguous chars (0, O, l, 1)</span>
+          <span className="text-xs text-[#eaecef]">Exclude ambiguous chars (0, O, l, 1)</span>
         </label>
       </div>
 

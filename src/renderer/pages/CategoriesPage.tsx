@@ -34,7 +34,7 @@ export default function CategoriesPage() {
   return (
     <div className="space-y-4 max-w-3xl">
       <div className="flex items-center gap-3">
-        <Tag className="w-5 h-5 text-vault-400" />
+        <Tag className="w-5 h-5 text-[#fcd535]" />
         <h1 className="text-2xl font-bold text-white">Categories</h1>
       </div>
 
@@ -47,24 +47,24 @@ export default function CategoriesPage() {
           onChange={e => { setNewName(e.target.value); setError('') }}
           onKeyDown={e => e.key === 'Enter' && handleAdd()}
         />
-        <button className="btn-primary h-9 px-4 text-sm flex items-center gap-1" onClick={handleAdd}>
+        <button className="btn-primary h-9 px-4 text-sm flex items-center gap-1 font-semibold" onClick={handleAdd}>
           <Plus className="w-4 h-4" /> Add
         </button>
       </div>
-      {error && <p className="text-xs text-red-400">{error}</p>}
+      {error && <p className="text-xs text-[#f6465d]">{error}</p>}
 
       {/* List */}
       <div className="space-y-2">
         {categories.map(cat => (
-          <div key={cat.id} className="card p-4 flex items-center gap-3">
-            <Tag className="w-4 h-4 text-vault-400 shrink-0" />
+          <div key={cat.id} className="card p-4 flex items-center gap-3 hover:border-[#363d47] transition-colors">
+            <Tag className="w-4 h-4 text-[#fcd535] shrink-0" />
             <span className="flex-1 text-sm font-medium text-white">{cat.name}</span>
-            <span className="badge bg-white/[0.06] text-slate-400 text-xs">
+            <span className="badge text-xs font-mono">
               <KeyRound className="w-3 h-3 inline mr-1" />
               {countForCategory(cat.name)} passwords
             </span>
             <button
-              className="p-1.5 rounded hover:bg-red-500/20 text-slate-500 hover:text-red-400 transition-colors"
+              className="p-1.5 rounded hover:bg-[#f6465d]/20 text-[#707a8a] hover:text-[#f6465d] transition-colors"
               onClick={() => setDeleteId(cat.id)}
             >
               <Trash2 className="w-4 h-4" />

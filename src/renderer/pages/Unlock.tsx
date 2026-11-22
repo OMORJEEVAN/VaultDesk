@@ -26,23 +26,23 @@ export default function Unlock({ onUnlocked }: Props): React.ReactElement {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-surface-300 px-6 animate-fade-in">
+    <div className="flex flex-col items-center justify-center h-screen bg-[#0b0e11] px-6 animate-fade-in">
       <div className="w-full max-w-sm space-y-6">
         <div className="text-center">
-          <div className="w-16 h-16 rounded-2xl bg-vault-500/20 flex items-center justify-center border border-vault-500/30 mx-auto mb-4">
-            <Lock className="w-8 h-8 text-vault-400" />
+          <div className="w-16 h-16 rounded-2xl bg-[#fcd535]/15 flex items-center justify-center border border-[#fcd535]/30 mx-auto mb-4">
+            <Lock className="w-8 h-8 text-[#fcd535]" />
           </div>
           <h2 className="text-2xl font-bold text-white">Unlock VaultDesk</h2>
-          <p className="text-slate-400 text-sm mt-1">Enter your master password to access your vault</p>
+          <p className="text-[#707a8a] text-sm mt-1">Enter your master password to access your vault</p>
         </div>
 
         <div className="card p-6 space-y-4">
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1.5">Master Password</label>
+            <label className="block text-sm font-medium text-[#eaecef] mb-1.5">Master Password</label>
             <div className="relative">
               <input
                 type={showPw ? 'text' : 'password'}
-                className={`input pr-10 ${error ? 'border-red-500/50 focus:ring-red-500/30' : ''}`}
+                className={`input pr-10 font-mono ${error ? 'border-[#f6465d]/50 focus:ring-[#f6465d]/30' : ''}`}
                 placeholder="Enter your master password"
                 value={password}
                 onChange={e => { setPassword(e.target.value); setError('') }}
@@ -52,7 +52,7 @@ export default function Unlock({ onUnlocked }: Props): React.ReactElement {
               />
               <button
                 type="button"
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#707a8a] hover:text-white"
                 onClick={() => setShowPw(v => !v)}
               >
                 {showPw ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -61,23 +61,23 @@ export default function Unlock({ onUnlocked }: Props): React.ReactElement {
           </div>
 
           {error && (
-            <div className="flex items-center gap-2 p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-sm animate-fade-in">
+            <div className="flex items-center gap-2 p-3 rounded-lg bg-[#f6465d]/10 border border-[#f6465d]/20 text-[#f6465d] text-sm animate-fade-in">
               <AlertCircle className="w-4 h-4 shrink-0" />
               {error}
               {attempts >= 3 && (
-                <span className="ml-auto text-xs text-red-300/70">({attempts} attempts)</span>
+                <span className="ml-auto text-xs text-[#f6465d]/70">({attempts} attempts)</span>
               )}
             </div>
           )}
 
           <button
-            className="btn-primary w-full py-3"
+            className="btn-primary w-full py-3 font-semibold"
             onClick={handleUnlock}
             disabled={loading || !password}
           >
             {loading ? (
               <span className="flex items-center justify-center gap-2">
-                <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                <div className="w-4 h-4 border-2 border-[#181a20]/30 border-t-[#181a20] rounded-full animate-spin" />
                 Unlocking...
               </span>
             ) : (
@@ -89,7 +89,7 @@ export default function Unlock({ onUnlocked }: Props): React.ReactElement {
           </button>
         </div>
 
-        <p className="text-center text-xs text-slate-600">
+        <p className="text-center text-xs text-[#707a8a]">
           Forgot your master password? Unfortunately, the encrypted vault cannot be accessed without it.
         </p>
       </div>

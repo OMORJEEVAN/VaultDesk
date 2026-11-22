@@ -17,7 +17,13 @@ export default function App(): React.ReactElement {
     window.vaultAPI.getSettings().then(s => {
       const t = s.theme === 'light' ? 'light' : 'dark'
       setTheme(t)
-      document.documentElement.classList.toggle('light', t === 'light')
+      if (t === 'light') {
+        document.documentElement.classList.add('light')
+        document.documentElement.classList.remove('dark')
+      } else {
+        document.documentElement.classList.add('dark')
+        document.documentElement.classList.remove('light')
+      }
     })
   }, [])
 
@@ -50,14 +56,20 @@ export default function App(): React.ReactElement {
   const toggleTheme = () => {
     const next = theme === 'dark' ? 'light' : 'dark'
     setTheme(next)
-    document.documentElement.classList.toggle('light', next === 'light')
+    if (next === 'light') {
+      document.documentElement.classList.add('light')
+      document.documentElement.classList.remove('dark')
+    } else {
+      document.documentElement.classList.add('dark')
+      document.documentElement.classList.remove('light')
+    }
     window.vaultAPI.saveSettings({ theme: next })
   }
 
   if (status === null) {
     return (
-      <div className="flex items-center justify-center h-screen bg-surface-300">
-        <div className="w-8 h-8 border-2 border-vault-500 border-t-transparent rounded-full animate-spin" />
+      <div className="flex items-center justify-center h-screen bg-[#0b0e11]">
+        <div className="w-8 h-8 border-2 border-[#fcd535] border-t-transparent rounded-full animate-spin" />
       </div>
     )
   }

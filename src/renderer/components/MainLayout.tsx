@@ -49,16 +49,16 @@ export default function MainLayout({ currentPage, onNavigate, theme, onToggleThe
   }
 
   return (
-    <div className="flex h-screen overflow-hidden bg-surface-300">
+    <div className="flex h-screen overflow-hidden bg-[#0b0e11] text-[#eaecef]">
       {/* Sidebar */}
       <aside
-        className={`flex flex-col shrink-0 border-r border-white/[0.06] bg-surface-100
+        className={`flex flex-col shrink-0 border-r border-[#2b3139] bg-[#0b0e11]
                     transition-all duration-200 ${collapsed ? 'w-16' : 'w-56'}`}
       >
         {/* Logo */}
-        <div className={`flex items-center gap-3 px-4 py-5 border-b border-white/[0.06] ${collapsed ? 'justify-center' : ''}`}>
-          <div className="w-8 h-8 rounded-lg bg-vault-500 flex items-center justify-center shrink-0">
-            <Shield className="w-4 h-4 text-white" />
+        <div className={`flex items-center gap-3 px-4 py-5 border-b border-[#2b3139] ${collapsed ? 'justify-center' : ''}`}>
+          <div className="w-8 h-8 rounded-lg bg-[#fcd535] flex items-center justify-center shrink-0 shadow-sm">
+            <Shield className="w-4 h-4 text-[#181a20]" />
           </div>
           {!collapsed && (
             <span className="font-bold text-white text-base tracking-tight">VaultDesk</span>
@@ -81,9 +81,9 @@ export default function MainLayout({ currentPage, onNavigate, theme, onToggleThe
         </nav>
 
         {/* Bottom actions */}
-        <div className={`px-2 py-3 border-t border-white/[0.06] space-y-1`}>
+        <div className="px-2 py-3 border-t border-[#2b3139] space-y-1">
           <button
-            className={`sidebar-item w-full text-red-400 hover:text-red-300 hover:bg-red-500/10 ${collapsed ? 'justify-center px-2' : ''}`}
+            className={`sidebar-item w-full text-[#f6465d] hover:text-[#f6465d] hover:bg-[#f6465d]/10 ${collapsed ? 'justify-center px-2' : ''}`}
             onClick={onLock}
             title={collapsed ? 'Lock Vault' : undefined}
           >
@@ -101,12 +101,12 @@ export default function MainLayout({ currentPage, onNavigate, theme, onToggleThe
       </aside>
 
       {/* Main content */}
-      <div className="flex flex-col flex-1 min-w-0">
+      <div className="flex flex-col flex-1 min-w-0 bg-[#0b0e11]">
         {/* Top bar */}
-        <header className="flex items-center gap-4 px-6 py-3 border-b border-white/[0.06] bg-surface-100/50 backdrop-blur-sm shrink-0">
+        <header className="flex items-center gap-4 px-6 py-3 border-b border-[#2b3139] bg-[#0b0e11] shrink-0">
           <GlobalSearch />
-          <div className="ml-auto flex items-center gap-2 text-xs text-slate-500">
-            <div className="w-2 h-2 rounded-full bg-green-400" />
+          <div className="ml-auto flex items-center gap-2 text-xs text-[#707a8a]">
+            <div className="w-2 h-2 rounded-full bg-[#0ecb81]" />
             Vault unlocked
           </div>
         </header>

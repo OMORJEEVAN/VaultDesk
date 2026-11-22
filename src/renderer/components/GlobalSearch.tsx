@@ -73,21 +73,21 @@ export default function GlobalSearch({ onSelect }: Props) {
       </div>
 
       {open && (
-        <div className="absolute top-full left-0 right-0 mt-1 card border border-white/[0.1] shadow-glass z-50 overflow-hidden animate-slide-up">
+        <div className="absolute top-full left-0 right-0 mt-1 card border border-[#2b3139] shadow-card-dark bg-[#1e2329] z-50 overflow-hidden animate-slide-up">
           {results.map(cred => (
             <button
               key={cred.id}
-              className="flex items-center gap-3 w-full px-4 py-3 hover:bg-white/[0.05] text-left transition-colors"
+              className="flex items-center gap-3 w-full px-4 py-3 hover:bg-[#2b3139] text-left transition-colors border-b border-[#2b3139]/40 last:border-b-0"
               onClick={() => { onSelect?.(cred); clear() }}
             >
-              <div className="w-8 h-8 rounded-lg bg-vault-500/20 flex items-center justify-center text-vault-400 font-bold text-sm shrink-0">
+              <div className="w-8 h-8 rounded-lg bg-[#fcd535]/15 flex items-center justify-center text-[#fcd535] font-bold text-sm shrink-0 font-mono">
                 {cred.platformName.charAt(0).toUpperCase()}
               </div>
               <div className="min-w-0">
                 <p className="text-sm font-medium text-white truncate">{cred.platformName}</p>
-                <p className="text-xs text-slate-500 truncate">{cred.email || cred.username}</p>
+                <p className="text-xs text-[#707a8a] truncate">{cred.email || cred.username}</p>
               </div>
-              <span className="ml-auto text-xs text-slate-600 shrink-0">{cred.category}</span>
+              <span className="ml-auto text-xs text-[#707a8a] shrink-0 font-medium">{cred.category}</span>
             </button>
           ))}
         </div>

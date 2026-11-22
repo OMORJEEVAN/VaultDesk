@@ -33,31 +33,31 @@ export default function Setup({ onComplete }: Props): React.ReactElement {
 
   if (step === 'welcome') {
     return (
-      <div className="flex flex-col items-center justify-center h-screen bg-surface-300 px-6 animate-fade-in">
+      <div className="flex flex-col items-center justify-center h-screen bg-[#0b0e11] px-6 animate-fade-in">
         <div className="flex flex-col items-center gap-6 max-w-md text-center">
-          <div className="w-20 h-20 rounded-2xl bg-vault-500/20 flex items-center justify-center border border-vault-500/30">
-            <Shield className="w-10 h-10 text-vault-400" />
+          <div className="w-20 h-20 rounded-2xl bg-[#fcd535]/15 flex items-center justify-center border border-[#fcd535]/30">
+            <Shield className="w-10 h-10 text-[#fcd535]" />
           </div>
           <div>
             <h1 className="text-3xl font-bold text-white mb-2">Welcome to VaultDesk</h1>
-            <p className="text-slate-400 text-base leading-relaxed">
+            <p className="text-[#707a8a] text-base leading-relaxed">
               Your secure, completely offline password vault. All data is encrypted on your device — nothing ever leaves your computer.
             </p>
           </div>
-          <div className="w-full bg-white/[0.04] rounded-xl border border-white/[0.08] p-4 text-left space-y-2">
+          <div className="w-full bg-[#1e2329] rounded-xl border border-[#2b3139] p-4 text-left space-y-2.5">
             {[
               'AES-256-GCM encryption for all stored credentials',
               'Argon2id key derivation — never stores your master password',
               'Fully offline — no cloud, no telemetry, no accounts',
               'Open source security layer'
             ].map((f, i) => (
-              <div key={i} className="flex items-center gap-2 text-sm text-slate-300">
-                <CheckCircle className="w-4 h-4 text-vault-400 shrink-0" />
+              <div key={i} className="flex items-center gap-2.5 text-sm text-[#eaecef]">
+                <CheckCircle className="w-4 h-4 text-[#fcd535] shrink-0" />
                 {f}
               </div>
             ))}
           </div>
-          <button className="btn-primary w-full py-3 text-base" onClick={() => setStep('create')}>
+          <button className="btn-primary w-full py-3 text-base font-semibold" onClick={() => setStep('create')}>
             Create My Vault
           </button>
         </div>
@@ -66,24 +66,24 @@ export default function Setup({ onComplete }: Props): React.ReactElement {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-surface-300 px-6 animate-fade-in">
+    <div className="flex flex-col items-center justify-center h-screen bg-[#0b0e11] px-6 animate-fade-in">
       <div className="w-full max-w-md space-y-6">
         <div className="text-center">
-          <div className="w-14 h-14 rounded-xl bg-vault-500/20 flex items-center justify-center border border-vault-500/30 mx-auto mb-4">
-            <Shield className="w-7 h-7 text-vault-400" />
+          <div className="w-14 h-14 rounded-xl bg-[#fcd535]/15 flex items-center justify-center border border-[#fcd535]/30 mx-auto mb-4">
+            <Shield className="w-7 h-7 text-[#fcd535]" />
           </div>
           <h2 className="text-2xl font-bold text-white">Create Master Password</h2>
-          <p className="text-slate-400 text-sm mt-1">This password encrypts your entire vault. If you forget it, your data cannot be recovered.</p>
+          <p className="text-[#707a8a] text-sm mt-1">This password encrypts your entire vault. If you forget it, your data cannot be recovered.</p>
         </div>
 
         <div className="card p-6 space-y-4">
           {/* Password field */}
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1.5">Master Password</label>
+            <label className="block text-sm font-medium text-[#eaecef] mb-1.5">Master Password</label>
             <div className="relative">
               <input
                 type={showPw ? 'text' : 'password'}
-                className="input pr-10"
+                className="input pr-10 font-mono"
                 placeholder="Create a strong master password"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
@@ -91,7 +91,7 @@ export default function Setup({ onComplete }: Props): React.ReactElement {
               />
               <button
                 type="button"
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#707a8a] hover:text-white"
                 onClick={() => setShowPw(v => !v)}
               >
                 {showPw ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -104,7 +104,7 @@ export default function Setup({ onComplete }: Props): React.ReactElement {
           {password && !validation.valid && (
             <ul className="space-y-1">
               {validation.errors.map((e, i) => (
-                <li key={i} className="flex items-center gap-1.5 text-xs text-amber-400">
+                <li key={i} className="flex items-center gap-1.5 text-xs text-[#fcd535]">
                   <AlertCircle className="w-3.5 h-3.5 shrink-0" />
                   {e}
                 </li>
@@ -114,11 +114,11 @@ export default function Setup({ onComplete }: Props): React.ReactElement {
 
           {/* Confirm field */}
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1.5">Confirm Master Password</label>
+            <label className="block text-sm font-medium text-[#eaecef] mb-1.5">Confirm Master Password</label>
             <div className="relative">
               <input
                 type={showCf ? 'text' : 'password'}
-                className={`input pr-10 ${confirm && !match ? 'border-red-500/50 focus:ring-red-500/30' : ''}`}
+                className={`input pr-10 font-mono ${confirm && !match ? 'border-[#f6465d]/50 focus:ring-[#f6465d]/30' : ''}`}
                 placeholder="Repeat your master password"
                 value={confirm}
                 onChange={e => setConfirm(e.target.value)}
@@ -126,19 +126,19 @@ export default function Setup({ onComplete }: Props): React.ReactElement {
               />
               <button
                 type="button"
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#707a8a] hover:text-white"
                 onClick={() => setShowCf(v => !v)}
               >
                 {showCf ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
               </button>
             </div>
             {confirm && !match && (
-              <p className="text-xs text-red-400 mt-1 flex items-center gap-1">
+              <p className="text-xs text-[#f6465d] mt-1 flex items-center gap-1 font-mono">
                 <AlertCircle className="w-3 h-3" /> Passwords do not match
               </p>
             )}
             {confirm && match && (
-              <p className="text-xs text-green-400 mt-1 flex items-center gap-1">
+              <p className="text-xs text-[#0ecb81] mt-1 flex items-center gap-1 font-mono">
                 <CheckCircle className="w-3 h-3" /> Passwords match
               </p>
             )}
@@ -146,27 +146,27 @@ export default function Setup({ onComplete }: Props): React.ReactElement {
 
           {/* Error */}
           {error && (
-            <div className="flex items-center gap-2 p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-sm">
+            <div className="flex items-center gap-2 p-3 rounded-lg bg-[#f6465d]/10 border border-[#f6465d]/20 text-[#f6465d] text-sm">
               <AlertCircle className="w-4 h-4 shrink-0" />
               {error}
             </div>
           )}
 
           {/* Warning */}
-          <div className="p-3 rounded-lg bg-amber-500/10 border border-amber-500/20">
-            <p className="text-xs text-amber-300 leading-relaxed">
+          <div className="p-3 rounded-lg bg-[#fcd535]/10 border border-[#fcd535]/25">
+            <p className="text-xs text-[#fcd535] leading-relaxed">
               ⚠️ <strong>Important:</strong> There is no password reset. If you forget your master password, your vault data cannot be recovered.
             </p>
           </div>
 
           <button
-            className="btn-primary w-full py-3"
+            className="btn-primary w-full py-3 font-semibold"
             onClick={handleCreate}
             disabled={loading || !validation.valid || !match}
           >
             {loading ? (
               <span className="flex items-center justify-center gap-2">
-                <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                <div className="w-4 h-4 border-2 border-[#181a20]/30 border-t-[#181a20] rounded-full animate-spin" />
                 Creating vault...
               </span>
             ) : 'Create Vault'}

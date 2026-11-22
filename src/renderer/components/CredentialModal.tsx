@@ -59,12 +59,12 @@ export default function CredentialModal({ initial, onSave, onClose, existingEmai
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
-      <div className="w-full max-w-lg bg-surface-100 rounded-2xl border border-white/[0.1] shadow-glass flex flex-col max-h-[90vh]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-fade-in">
+      <div className="w-full max-w-lg bg-[#1e2329] rounded-2xl border border-[#2b3139] shadow-card-dark flex flex-col max-h-[90vh]">
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-white/[0.08] shrink-0">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[#2b3139] shrink-0">
           <h2 className="text-lg font-semibold text-white">{initial ? 'Edit Password' : 'Add Password'}</h2>
-          <button className="p-1.5 rounded-lg hover:bg-white/[0.08] text-slate-400 hover:text-white" onClick={onClose}>
+          <button className="p-1.5 rounded-lg hover:bg-[#2b3139] text-[#707a8a] hover:text-white" onClick={onClose}>
             <X className="w-5 h-5" />
           </button>
         </div>
@@ -73,19 +73,19 @@ export default function CredentialModal({ initial, onSave, onClose, existingEmai
         <div className="overflow-y-auto px-6 py-4 space-y-4 flex-1">
           {/* Platform */}
           <div>
-            <label className="block text-xs font-medium text-slate-400 mb-1">Platform / Service *</label>
+            <label className="block text-xs font-medium text-[#707a8a] mb-1">Platform / Service *</label>
             <input className="input h-9 text-sm" placeholder="e.g. Google, GitHub" value={form.platformName} onChange={e => set('platformName', e.target.value)} />
           </div>
 
           {/* URL */}
           <div>
-            <label className="block text-xs font-medium text-slate-400 mb-1">Website URL</label>
+            <label className="block text-xs font-medium text-[#707a8a] mb-1">Website URL</label>
             <input className="input h-9 text-sm" placeholder="https://example.com" value={form.websiteUrl} onChange={e => set('websiteUrl', e.target.value)} />
           </div>
 
           {/* Email */}
           <div className="relative">
-            <label className="block text-xs font-medium text-slate-400 mb-1">Email Address</label>
+            <label className="block text-xs font-medium text-[#707a8a] mb-1">Email Address</label>
             <input
               className="input h-9 text-sm"
               placeholder="your@email.com"
@@ -95,9 +95,9 @@ export default function CredentialModal({ initial, onSave, onClose, existingEmai
               autoComplete="off"
             />
             {showEmailSugg && emailSuggestions.length > 0 && (
-              <div className="absolute top-full left-0 right-0 mt-1 bg-surface-50 border border-white/[0.1] rounded-lg overflow-hidden z-10 shadow-glass">
+              <div className="absolute top-full left-0 right-0 mt-1 bg-[#1e2329] border border-[#2b3139] rounded-lg overflow-hidden z-10 shadow-card-dark">
                 {emailSuggestions.map(e => (
-                  <button key={e} className="w-full text-left px-3 py-2 text-sm hover:bg-white/[0.06] text-slate-300" onClick={() => { set('email', e); setShowEmailSugg(false) }}>
+                  <button key={e} className="w-full text-left px-3 py-2 text-sm hover:bg-[#2b3139] text-[#eaecef]" onClick={() => { set('email', e); setShowEmailSugg(false) }}>
                     {e}
                   </button>
                 ))}
@@ -107,26 +107,26 @@ export default function CredentialModal({ initial, onSave, onClose, existingEmai
 
           {/* Username */}
           <div>
-            <label className="block text-xs font-medium text-slate-400 mb-1">Username</label>
+            <label className="block text-xs font-medium text-[#707a8a] mb-1">Username</label>
             <input className="input h-9 text-sm" placeholder="Username" value={form.username} onChange={e => set('username', e.target.value)} />
           </div>
 
           {/* Password */}
           <div>
-            <label className="block text-xs font-medium text-slate-400 mb-1">Password *</label>
+            <label className="block text-xs font-medium text-[#707a8a] mb-1">Password *</label>
             <div className="relative">
               <input
                 type={showPw ? 'text' : 'password'}
-                className="input h-9 text-sm pr-20"
+                className="input h-9 text-sm pr-20 font-mono"
                 placeholder="Password"
                 value={form.password}
                 onChange={e => set('password', e.target.value)}
               />
               <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1">
-                <button type="button" className="p-1 text-slate-500 hover:text-slate-300" onClick={() => setShowPw(v => !v)}>
+                <button type="button" className="p-1 text-[#707a8a] hover:text-white" onClick={() => setShowPw(v => !v)}>
                   {showPw ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
                 </button>
-                <button type="button" className="p-1 text-slate-500 hover:text-vault-400" title="Generate password" onClick={() => setShowGen(v => !v)}>
+                <button type="button" className="p-1 text-[#707a8a] hover:text-[#fcd535]" title="Generate password" onClick={() => setShowGen(v => !v)}>
                   <RefreshCw className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -143,7 +143,7 @@ export default function CredentialModal({ initial, onSave, onClose, existingEmai
 
           {/* Category */}
           <div>
-            <label className="block text-xs font-medium text-slate-400 mb-1">Category</label>
+            <label className="block text-xs font-medium text-[#707a8a] mb-1">Category</label>
             <select className="input h-9 text-sm" value={form.category} onChange={e => set('category', e.target.value)}>
               <option value="">Select category</option>
               {categories.map(c => <option key={c} value={c}>{c}</option>)}
@@ -152,7 +152,7 @@ export default function CredentialModal({ initial, onSave, onClose, existingEmai
 
           {/* Tags */}
           <div>
-            <label className="block text-xs font-medium text-slate-400 mb-1">Tags</label>
+            <label className="block text-xs font-medium text-[#707a8a] mb-1">Tags</label>
             <div className="flex gap-2">
               <input
                 className="input h-9 text-sm flex-1"
@@ -166,9 +166,9 @@ export default function CredentialModal({ initial, onSave, onClose, existingEmai
             {form.tags.length > 0 && (
               <div className="flex flex-wrap gap-1.5 mt-2">
                 {form.tags.map(t => (
-                  <span key={t} className="badge bg-vault-500/15 text-vault-400 border border-vault-500/20 flex items-center gap-1 pl-2 pr-1">
+                  <span key={t} className="badge bg-[#fcd535]/12 text-[#fcd535] border border-[#fcd535]/25 flex items-center gap-1 pl-2 pr-1 font-mono">
                     {t}
-                    <button onClick={() => removeTag(t)} className="hover:text-red-400"><X className="w-3 h-3" /></button>
+                    <button onClick={() => removeTag(t)} className="hover:text-[#f6465d]"><X className="w-3 h-3" /></button>
                   </span>
                 ))}
               </div>
@@ -177,7 +177,7 @@ export default function CredentialModal({ initial, onSave, onClose, existingEmai
 
           {/* Notes */}
           <div>
-            <label className="block text-xs font-medium text-slate-400 mb-1">Notes</label>
+            <label className="block text-xs font-medium text-[#707a8a] mb-1">Notes</label>
             <textarea
               className="input h-20 text-sm resize-none"
               placeholder="Optional personal notes..."
@@ -188,15 +188,15 @@ export default function CredentialModal({ initial, onSave, onClose, existingEmai
 
           {/* Favorite */}
           <label className="flex items-center gap-2 cursor-pointer">
-            <input type="checkbox" className="w-4 h-4 rounded accent-vault-500" checked={form.isFavorite} onChange={e => set('isFavorite', e.target.checked)} />
-            <span className="text-sm text-slate-300">Mark as favorite</span>
+            <input type="checkbox" className="w-4 h-4 rounded accent-[#fcd535]" checked={form.isFavorite} onChange={e => set('isFavorite', e.target.checked)} />
+            <span className="text-sm text-[#eaecef]">Mark as favorite</span>
           </label>
 
           {/* Errors */}
           {errors.length > 0 && (
-            <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20 space-y-1">
+            <div className="p-3 rounded-lg bg-[#f6465d]/10 border border-[#f6465d]/25 space-y-1">
               {errors.map((e, i) => (
-                <p key={i} className="text-xs text-red-400 flex items-center gap-1">
+                <p key={i} className="text-xs text-[#f6465d] flex items-center gap-1">
                   <AlertCircle className="w-3 h-3 shrink-0" />{e}
                 </p>
               ))}
@@ -205,9 +205,9 @@ export default function CredentialModal({ initial, onSave, onClose, existingEmai
         </div>
 
         {/* Footer */}
-        <div className="flex gap-3 px-6 py-4 border-t border-white/[0.08] shrink-0">
+        <div className="flex gap-3 px-6 py-4 border-t border-[#2b3139] shrink-0">
           <button className="btn-ghost flex-1 text-sm" onClick={onClose}>Cancel</button>
-          <button className="btn-primary flex-1 text-sm" onClick={handleSave} disabled={loading}>
+          <button className="btn-primary flex-1 text-sm font-semibold" onClick={handleSave} disabled={loading}>
             {loading ? 'Saving...' : initial ? 'Save Changes' : 'Add Password'}
           </button>
         </div>

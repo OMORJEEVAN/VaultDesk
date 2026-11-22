@@ -66,9 +66,9 @@ export default function SettingsPage({ theme, onToggleTheme, onLock }: Props) {
   return (
     <div className="space-y-6 max-w-2xl">
       <div className="flex items-center gap-3">
-        <Settings className="w-5 h-5 text-vault-400" />
+        <Settings className="w-5 h-5 text-[#fcd535]" />
         <h1 className="text-2xl font-bold text-white">Settings</h1>
-        {saved && <span className="text-xs text-green-400 ml-auto animate-fade-in">✓ Saved</span>}
+        {saved && <span className="text-xs text-[#0ecb81] ml-auto animate-fade-in font-medium">✓ Saved</span>}
       </div>
 
       {/* Appearance */}
@@ -76,14 +76,14 @@ export default function SettingsPage({ theme, onToggleTheme, onLock }: Props) {
         <h2 className="font-semibold text-white text-sm">Appearance</h2>
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm text-white">Theme</p>
-            <p className="text-xs text-slate-500">Switch between dark and light mode</p>
+            <p className="text-sm font-medium text-white">Theme</p>
+            <p className="text-xs text-[#707a8a]">Switch between dark and light mode</p>
           </div>
           <button
-            className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/[0.1] hover:bg-white/[0.06] text-sm text-slate-300 transition-colors"
+            className="btn-ghost flex items-center gap-2 px-3 py-1.5 text-sm"
             onClick={onToggleTheme}
           >
-            {theme === 'dark' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+            {theme === 'dark' ? <Moon className="w-4 h-4 text-[#fcd535]" /> : <Sun className="w-4 h-4 text-[#fcd535]" />}
             {theme === 'dark' ? 'Dark' : 'Light'}
           </button>
         </div>
@@ -94,11 +94,11 @@ export default function SettingsPage({ theme, onToggleTheme, onLock }: Props) {
         <h2 className="font-semibold text-white text-sm">Security</h2>
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm text-white">Auto-lock after inactivity</p>
-            <p className="text-xs text-slate-500">Lock the vault after this many minutes of inactivity (0 = disabled)</p>
+            <p className="text-sm font-medium text-white">Auto-lock after inactivity</p>
+            <p className="text-xs text-[#707a8a]">Lock the vault after this many minutes of inactivity (0 = disabled)</p>
           </div>
           <select
-            className="input w-28 h-8 text-sm"
+            className="input w-32 h-9 text-sm"
             value={settings.autoLockMinutes}
             onChange={e => save({ autoLockMinutes: Number(e.target.value) })}
           >
@@ -113,11 +113,11 @@ export default function SettingsPage({ theme, onToggleTheme, onLock }: Props) {
         </div>
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm text-white">Clipboard clear delay</p>
-            <p className="text-xs text-slate-500">Clear copied password from clipboard after this many seconds</p>
+            <p className="text-sm font-medium text-white">Clipboard clear delay</p>
+            <p className="text-xs text-[#707a8a]">Clear copied password from clipboard after this many seconds</p>
           </div>
           <select
-            className="input w-28 h-8 text-sm"
+            className="input w-32 h-9 text-sm"
             value={settings.clipboardClearSeconds}
             onChange={e => save({ clipboardClearSeconds: Number(e.target.value) })}
           >
@@ -128,14 +128,14 @@ export default function SettingsPage({ theme, onToggleTheme, onLock }: Props) {
           </select>
         </div>
         <button className="btn-ghost text-sm flex items-center gap-2" onClick={onLock}>
-          <Lock className="w-4 h-4" /> Lock Vault Now
+          <Lock className="w-4 h-4 text-[#f6465d]" /> Lock Vault Now
         </button>
       </div>
 
       {/* Backup & Restore */}
       <div className="card p-5 space-y-3">
         <h2 className="font-semibold text-white text-sm">Backup & Restore</h2>
-        <p className="text-xs text-slate-500">Backups are always encrypted. The vault file can only be opened with the correct master password.</p>
+        <p className="text-xs text-[#707a8a]">Backups are always encrypted. The vault file can only be opened with the correct master password.</p>
         <div className="flex gap-3">
           <button className="btn-ghost text-sm flex items-center gap-2 flex-1 justify-center" onClick={handleExportBackup}>
             <Download className="w-4 h-4" /> Export Backup
@@ -149,7 +149,7 @@ export default function SettingsPage({ theme, onToggleTheme, onLock }: Props) {
       {/* Vault location */}
       <div className="card p-5 space-y-3">
         <h2 className="font-semibold text-white text-sm">Vault Storage Location</h2>
-        <p className="text-xs text-slate-500 font-mono bg-white/[0.04] p-2 rounded">
+        <p className="text-xs text-white font-mono bg-[#0b0e11] border border-[#2b3139] p-2.5 rounded-lg">
           {settings.vaultPath || '(default: app data directory)'}
         </p>
         <button className="btn-ghost text-sm flex items-center gap-2" onClick={handleChangeLocation}>
@@ -158,11 +158,11 @@ export default function SettingsPage({ theme, onToggleTheme, onLock }: Props) {
       </div>
 
       {/* Danger zone */}
-      <div className="card p-5 space-y-3 border-red-500/20 bg-red-500/5">
-        <h2 className="font-semibold text-red-400 text-sm flex items-center gap-2">
+      <div className="card p-5 space-y-3 border-[#f6465d]/20 bg-[#f6465d]/5">
+        <h2 className="font-semibold text-[#f6465d] text-sm flex items-center gap-2">
           <AlertTriangle className="w-4 h-4" /> Danger Zone
         </h2>
-        <p className="text-xs text-slate-500">
+        <p className="text-xs text-[#707a8a]">
           Deleting vault data is permanent and cannot be undone. Normal file deletion on SSDs may not be forensically irrecoverable.
         </p>
         <button className="btn-danger text-sm flex items-center gap-2" onClick={() => setDeleteVault(true)}>
