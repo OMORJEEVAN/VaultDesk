@@ -153,5 +153,3 @@ npm test
 
 - **Process Memory Forensic Protection**: While in-memory key buffers are actively zeroed on lock (`buffer.fill(0)`), JavaScript garbage-collected environments cannot guarantee instantaneous memory erasure against low-level kernel memory dumps.
 - **Master Password Recovery**: VaultDesk is strictly zero-knowledge. If the master password is lost, encrypted data is mathematically unrecoverable.
-
----
